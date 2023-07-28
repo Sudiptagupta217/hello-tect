@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../widgets/custom_form_filed.dart';
+import '../widgets/fa_custom_form_filed.dart';
 
 class UserNameLoginView extends StatefulWidget{
   @override
@@ -15,18 +16,16 @@ return Container(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomFormFiled(
+        FACustomFormFiled(
           width: MediaQuery.of(context).size.width*0.90,
           hintText: 'User Name',
-          icon: Icon(
-            Icons.account_circle,
-            color: Colors.grey,
-          ),
+          icon:  FaIcon(FontAwesomeIcons.user,size: 18, color: Colors.grey,)
+
         ),
         CustomFormFiled(
           width: MediaQuery.of(context).size.width*0.90,
           hintText: 'Password',
-          icon: Icon(Icons.lock, color: Colors.grey),
+          icon: Icon(Icons.lock_outline_rounded, color: Colors.grey),
         ),
         SizedBox(
           height: 10,

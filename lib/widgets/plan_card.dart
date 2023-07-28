@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'default_colors.dart';
+import '../utils/default_colors.dart';
 import 'custom_button.dart';
 
 class PlanCard extends StatefulWidget {

@@ -1,38 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:hello_tech_user/screen/ad_blocker_screen.dart';
-import 'package:hello_tech_user/screen/appliance_repair_screen.dart';
-import 'package:hello_tech_user/screen/book_technician_screen.dart';
-import 'package:hello_tech_user/screen/booking_confirmed_screen.dart';
-import 'package:hello_tech_user/screen/detailed_receipt_screen.dart';
-import 'package:hello_tech_user/screen/details_provided_by_tech_screen.dart';
-import 'package:hello_tech_user/screen/my_plans_screen.dart';
-import 'package:hello_tech_user/screen/payment_details_screen.dart';
-import 'package:hello_tech_user/screen/profile_edit_screen.dart';
-import 'package:hello_tech_user/screen/search_screen.dart';
-import 'package:hello_tech_user/screen/set_up_password_screen.dart';
-import 'package:hello_tech_user/screen/ticket_details_screen.dart';
-import 'package:hello_tech_user/screen/upcoming_booking_item_details_screen.dart';
-import 'package:hello_tech_user/screen/brand_model_screen.dart';
-import 'package:hello_tech_user/screen/diagnosis_test_screen.dart';
-import 'package:hello_tech_user/screen/diagnosis_testing_screen.dart';
-import 'package:hello_tech_user/screen/earning_screen.dart';
-import 'package:hello_tech_user/screen/home_screen.dart';
-import 'package:hello_tech_user/screen/information_screen.dart';
-import 'package:hello_tech_user/screen/kyc1_screen.dart';
-import 'package:hello_tech_user/screen/kyc2_screen.dart';
-import 'package:hello_tech_user/screen/login_screen.dart';
-import 'package:hello_tech_user/screen/my_booking_screen.dart';
-import 'package:hello_tech_user/screen/notification_screen.dart';
-import 'package:hello_tech_user/screen/offline_technicians_support_screen.dart';
-import 'package:hello_tech_user/screen/profile_screen.dart';
-import 'package:hello_tech_user/screen/refer_and_earn_screen.dart';
-import 'package:hello_tech_user/screen/refrigerator_repair_screen.dart';
-import 'package:hello_tech_user/screen/send_money_screen.dart';
-import 'package:hello_tech_user/screen/sign_up_screen.dart';
-import 'package:hello_tech_user/screen/splash_screen.dart';
-import 'package:hello_tech_user/screen/submit_my_deal_screen.dart';
-import 'package:hello_tech_user/screen/vendors_screen.dart';
-import 'package:hello_tech_user/screen/verify_personal_details_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/ad_blocker_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/add_device.dart';
+import 'package:hello_tech_user/screen/user_screen/appliance_repair_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/book_tech_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/book_technician_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/booking_confirmed_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/brand_model_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/detailed_receipt_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/details_provided_by_tech_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/diagnosis_test_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/diagnosis_testing_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/earning_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/home_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/information_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/kyc1_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/kyc2_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/login_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/my_booking_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/my_device.dart';
+import 'package:hello_tech_user/screen/user_screen/my_plans_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/notification_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/offline_technicians_support_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/payment_details_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/profile_edit_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/profile_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/refer_and_earn_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/refrigerator_repair_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/search_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/send_money_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/set_up_password_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/sign_up_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/slot_booking_confirmed_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/splash_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/submit_my_deal_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/ticket_details_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/upcoming_booking_item_details_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/vendors_screen.dart';
+import 'package:hello_tech_user/screen/user_screen/verify_personal_details_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_add_details_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_add_offers_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_earning_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_home_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_login_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_profile_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_profile_view_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_reviews_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_send_money_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_sign_up_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_splash_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_submit_deal_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_ticket_details_screen.dart';
+import 'package:hello_tech_user/screen/vender_screen/v_ticket_screen.dart';
+import 'package:hello_tech_user/view/v_closed_tickets_view.dart';
+import 'package:hello_tech_user/view/v_live_tickets_view.dart';
+import 'package:hello_tech_user/view/v_scheduled_tickets_view.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -82,6 +104,35 @@ class MyApp extends StatelessWidget {
         '/VerifyPersonalDetailsScreen': (BuildContext context) => VerifyPersonalDetailsScreen(),
         '/PaymentDetailsScreen': (BuildContext context) => PaymentDetailsScreen(),
         '/SetUpPasswordScreen': (BuildContext context) => SetUpPasswordScreen(),
+        '/my_device': (BuildContext context) => MyDevice(),
+        '/add_device': (BuildContext context) => AddDevice(),
+        '/BookTechScreen': (BuildContext context) => BookTechScreen(),
+        '/SlotBookingConfirmedScreen': (BuildContext context) => SlotBookingConfirmedScreen(),
+
+
+
+        ////vender routes/////
+
+        '/v_splash': (BuildContext context) => VSplashScreen(),
+        '/v_home': (BuildContext context) => VHomeScreen(),
+        '/v_login': (BuildContext context) => VLoginScreen(),
+        '/v_signup': (BuildContext context) => VSignUpScreen(),
+        '/v_adddetails': (BuildContext context) => VAddDetailsScreen(),
+        '/v_earning': (BuildContext context) => VEarningScreen(),
+        '/v_sendMoneyScreen': (BuildContext context) => VSendMoneyScreen(),
+        '/v_profile': (BuildContext context) => VProfileScreen(),
+        '/v_profileViewScreen': (BuildContext context) => VProfileViewScreen(),
+        '/v_addOffersScreen': (BuildContext context) => VAddOffersScreen(),
+        '/v_reviewsScreen': (BuildContext context) => VReviewsScreen(),
+        '/V_ticketScreen': (BuildContext context) => VTicketScreen(),
+
+        '/v_liveTicketsView': (BuildContext context) => VLiveTicketsView(),
+        '/v_scheduledTicketsView': (BuildContext context) => VScheduledTicketsView(),
+        '/v_closedTicketsView': (BuildContext context) => VClosedTicketsView(),
+        '/v_ticket_details_screen': (BuildContext context) => VTicketDetailsScreen(),
+        '/v_submit_deal_screen': (BuildContext context) => VSubmitDealScreen(),
+
+
       },
       title: _title,
       debugShowCheckedModeBanner: false,

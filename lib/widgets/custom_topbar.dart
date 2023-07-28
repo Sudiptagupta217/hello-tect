@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'default_colors.dart';
+import '../utils/default_colors.dart';
 
 class CustomTopBar extends StatefulWidget {
   final String text;

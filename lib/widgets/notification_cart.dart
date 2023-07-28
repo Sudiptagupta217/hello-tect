@@ -26,10 +26,10 @@ class _NotificationCartState extends State<NotificationCart> {
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.grey.withOpacity(0.3),
                 spreadRadius:0.4,
-                blurRadius: 2,
-                offset: Offset(1, 2), // vertical offset
+                blurRadius: 5,
+                offset: Offset(0, 1), // vertical offset
               ),
             ],
           ),
@@ -68,11 +68,12 @@ class _NotificationCartState extends State<NotificationCart> {
                          widget.title,
                           maxLines: null,
                           style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                              fontSize: 14,
+                              fontFamily: "Inter",
+                              fontWeight: FontWeight.w600),
                         )),
-                    const SizedBox(height: 7,),
-                    Text(widget.time, maxLines: null, style: TextStyle(fontSize: 12,color: Colors.grey),),
+                    const SizedBox(height: 10,),
+                    Text(widget.time, maxLines: null, style: TextStyle(fontSize: 12,color: Color(0xffbfbfbf),fontFamily: "Poppins",),),
                     SizedBox(height: 7,)
                   ],
                 )

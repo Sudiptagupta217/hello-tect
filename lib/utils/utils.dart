@@ -8,7 +8,14 @@ class Utils   {
  static String text2="Spare part rates applicable as per rate market price";
  static String text3="Lorem Ipsum is simply dummy text of the printing and type setting industry.";
  static String text4="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been. typesetting industry. Lorem Ipsum has been.";
+ static String text5="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been. typesetting industry. Lorem Ipsum has been. Lorem Ipsum has been. typesetting industry. Lorem Ipsum has been.";
 
+
+ // Fonts
+ static String interFont = "Inter";
+ static String latoFont = "Lato";
+ static String poppinsFont = "Poppins";
+ static String alewayFont = "Raleway";
 
  static toastMessage(String message){
   Fluttertoast.showToast(msg: message);

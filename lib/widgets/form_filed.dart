@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class FormFiled extends StatefulWidget {
-  final String title;
-  const FormFiled({Key? key, required this.title}) : super(key: key);
+   String? title;
+
+   FormFiled({Key? key,  this.title}) : super(key: key);
 
   @override
   State<FormFiled> createState() => _FormFiledState();
@@ -18,8 +19,8 @@ class _FormFiledState extends State<FormFiled> {
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 10.0,top: 15),
-          child: Text(widget.title,
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+          child: Text(widget.title!,
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600,fontFamily: "Raleway")),
         ),
         SizedBox(height: 5,),
         Container(

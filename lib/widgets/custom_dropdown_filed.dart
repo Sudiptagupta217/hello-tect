@@ -7,15 +7,16 @@ class CustomDropdown extends StatefulWidget {
   Color? bgcolor=Color(0xFFF8F8FC);
   Color? hintcolor;
   Color? textColor;
+  Color? dropdownColor=Color(0xFFF8F8FC);
   final double width;
   final List<String> listname;
 
-  CustomDropdown(
-      {Key? key,
+  CustomDropdown({Key? key,
       required this.text,
        this.bgcolor,
        this.hintcolor,
        this.textColor,
+       this.dropdownColor,
       required this.selectedOption,
       required this.width,
       required this.listname})
@@ -33,29 +34,30 @@ class _CustomDropdownState extends State<CustomDropdown> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 15,
-          ),
-          SizedBox(
-            height: 6,
+            height: 21,
           ),
           Container(
             width: widget.width,///////
             //margin: EdgeInsets.only(top: 20),
-            height: 60,
+            height: 55,
             decoration: BoxDecoration(
               color: widget.bgcolor,///////
               borderRadius: BorderRadius.circular(30),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 16,
-                  offset: Offset(0, 3),
+                  spreadRadius: 1,
+                  blurRadius: 2,
+                  offset: Offset(0, 2),
                 ),
               ],
             ),
             child: DropdownButtonFormField<String>(
-              hint: Text(widget.text,style: TextStyle(fontSize: 16,color: widget.hintcolor),),//////
+              dropdownColor: widget.dropdownColor,
+              hint: Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(widget.text,style: TextStyle(fontSize: 16,color: widget.hintcolor),),
+              ),//////
               value: null,
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
@@ -75,7 +77,10 @@ class _CustomDropdownState extends State<CustomDropdown> {
               items: widget.listname.map((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text(value,style: TextStyle(color: widget.textColor)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(value,style: TextStyle(color: widget.textColor,)),
+                  ),
                 );
               }).toList(),
             ),

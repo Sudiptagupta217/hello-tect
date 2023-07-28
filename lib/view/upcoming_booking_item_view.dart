@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_tech_user/widgets/default_colors.dart';
+import 'package:hello_tech_user/utils/default_colors.dart';
 
 class UpcomingBookingItem extends StatefulWidget {
   const UpcomingBookingItem({Key? key}) : super(key: key);
@@ -59,15 +59,43 @@ class _UpcomingBookingItemState extends State<UpcomingBookingItem> {
                           leading: const Image(image: AssetImage("assets/images/item.png")),
                           title: Text(value['name'].toString(),style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
                           subtitle: Text(value['date'].toString()),
-                          trailing: Text(value['status'].toString(),style: const TextStyle(fontSize: 14,color:DefaultColor.light_blue,fontWeight: FontWeight.w600),),
+                          trailing:
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                height: 16,
+                                width: 16,
+                                decoration: BoxDecoration(
+                                  color: DefaultColor.light_blue,
+                                  borderRadius: BorderRadius.circular(20)
+                                ),
+                                child: const Icon(
+                                  Icons.done,
+                                  // Customize the icon's size and color as needed
+                                  size: 12,
+                                  color: DefaultColor.white,
+                                ),
+                              ),
+                              SizedBox(width: 4), // Adjust the space between the icon and text
+                              Text(
+                                value['status'].toString(),
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: DefaultColor.light_blue,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                        //  Text(value['status'].toString(),style: const TextStyle(fontSize: 14,color:DefaultColor.light_blue,fontWeight: FontWeight.w600),),
                         ),
                       ),
                     ),
                   );
                 }).toList()
             )
-
-
 
 
           ],

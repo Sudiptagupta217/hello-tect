@@ -1,100 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
+import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
+import 'package:circular_bottom_navigation/tab_item.dart';
+import 'package:hello_tech_user/utils/default_colors.dart';
 
 class CustomFluidNavBar extends StatefulWidget {
-  final selectedIndex;
+  final int selectedIndex;
   ValueChanged<int> onClicked;
-  CustomFluidNavBar({super.key, this.selectedIndex, required this.onClicked});
+
+  CustomFluidNavBar({
+    Key? key,
+    required this.selectedIndex,
+    required this.onClicked,
+  }) : super(key: key);
 
   @override
   _CustomFluidNavBarState createState() => _CustomFluidNavBarState();
 }
 
 class _CustomFluidNavBarState extends State<CustomFluidNavBar> {
+  late CircularBottomNavigationController _navigationController;
 
-  // backgroundColor: widget.selectedIndex == 0 ? Colors.transparent : Color(0xffffffff),
+  @override
+  void initState() {
+    super.initState();
+    _navigationController =
+        CircularBottomNavigationController(widget.selectedIndex);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0x00000000),
-      child: FluidNavBar(
-        icons: [
-          FluidNavBarIcon(
-            icon: Icons.home,
-            selectedForegroundColor:widget.selectedIndex == 0 ? Color(0xffffffff) : Color(0xffE8E8E8) ,
-            unselectedForegroundColor: Color(0xffE8E8E8),
-            backgroundColor: widget.selectedIndex == 0 ? Color(0xff00A1B9) : Color(0xffffffff) ,
-            extras: {"label": "home"},
-
-          ),
-          FluidNavBarIcon(
-            icon: Icons.wallet_giftcard,
-            selectedForegroundColor:widget.selectedIndex == 1 ? Color(0xffffffff) : Color(0xffE8E8E8) ,
-            unselectedForegroundColor: Color(0xffE8E8E8),
-            backgroundColor: widget.selectedIndex == 1 ? Color(0xff00A1B9) : Color(0xffffffff) ,
-            extras: {"label": "earning"},
-          ),
-          FluidNavBarIcon(
-            icon: Icons.notifications_none,
-            selectedForegroundColor:widget.selectedIndex == 2 ? Color(0xffffffff) : Color(0xffE8E8E8) ,
-            unselectedForegroundColor: Color(0xffE8E8E8),
-            backgroundColor: widget.selectedIndex == 2 ? Color(0xff00A1B9) : Color(0xffffffff) ,
-            extras: {"label": "notification"},
-          ),
-          FluidNavBarIcon(
-            icon: Icons.account_circle_outlined,
-            selectedForegroundColor:widget.selectedIndex == 3 ? Color(0xffffffff) : Color(0xffE8E8E8) ,
-            unselectedForegroundColor: Color(0xffE8E8E8),
-            backgroundColor: widget.selectedIndex == 3 ? Color(0xff00A1B9) : Color(0xffffffff) ,
-            extras: {"label": "account"},
-          ),
-        ],
-        onChange: _handleNavigationChange,
-
-
-        style: const FluidNavBarStyle(
-          iconSelectedForegroundColor: Color(0xffffffff),
-          iconUnselectedForegroundColor: Colors.white60,
-        ),
-        scaleFactor: 1.5,
-        defaultIndex:widget.selectedIndex,
-        itemBuilder: (icon, item) => Semantics(
-          label: icon.extras!["label"],
-          child: item,
-        ),
+     //   height: 85,
+        color: Color(0x00000000),
+        child: CircularBottomNavigation(
+        circleSize: 60,
+        barBackgroundColor: Colors.white,
+        circleStrokeWidth: 6,
+        iconsSize: 24,
+        backgroundBoxShadow: [BoxShadow(color: DefaultColor.bg_color, blurRadius: 0.2)],
+        controller: _navigationController,
+        _buildBottomNavItems(),
+        selectedCallback: (selectedPos) => _handleNavigationChange(selectedPos!), // Call _handleNavigationChange(selectedPos) here
       ),
     );
   }
 
+  List<TabItem> _buildBottomNavItems() {
+    return [
+      TabItem(Icons.home, "Home", DefaultColor.light_blue, circleStrokeColor:DefaultColor.bg_color, labelStyle: TextStyle(color: DefaultColor.light_blue,fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "Raleway")),
+      TabItem(Icons.wallet_giftcard, "Earning",  DefaultColor.light_blue, circleStrokeColor:DefaultColor.bg_color,labelStyle: TextStyle(color: DefaultColor.light_blue,fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "Raleway")),
+      TabItem(Icons.notifications_none, "Notification", DefaultColor.light_blue, circleStrokeColor:DefaultColor.bg_color,labelStyle: TextStyle(color: DefaultColor.light_blue,fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "Raleway")),
+      TabItem(Icons.account_circle_outlined, "Account",  DefaultColor.light_blue, circleStrokeColor:DefaultColor.bg_color,labelStyle: TextStyle(color: DefaultColor.light_blue,fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "Raleway")),
+    ];
+  }
+
   void _handleNavigationChange(int index) {
     setState(() {
+      _navigationController.value = index;
+      widget.onClicked(index);
 
-
-    switch(index){
-      case 0:
-        widget.onClicked;
-        Navigator.pushNamed(context, "/home");
-        break;
-      case 1:
-        widget.onClicked;
-        Navigator.pushNamed(context, "/earning");
-        break;
-      case 2:
-        widget.onClicked;
-        Navigator.pushNamed(context, "/notification");
-        break;
-      case 3:
-        widget.onClicked;
-        Navigator.pushNamed(context, "/profile");
-        break;
-    }
-      // _child = AnimatedSwitcher(
-      //   switchInCurve: Curves.easeInOut,
-      //   switchOutCurve: Curves.easeInOut,
-      //   duration: Duration(milliseconds: 50),
-      //   child: _child,
-      // );
+      switch (index) {
+        case 0:
+          Navigator.pushNamed(context, "/home");
+          break;
+        case 1:
+          Navigator.pushNamed(context, "/earning");
+          break;
+        case 2:
+          Navigator.pushNamed(context, "/notification");
+          break;
+        case 3:
+          Navigator.pushNamed(context, "/profile");
+          break;
+      }
     });
-    }
+  }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'default_colors.dart';
+import '../utils/default_colors.dart';
 
 class EarningCart extends StatefulWidget {
   final Color outerColor;
@@ -31,9 +31,9 @@ class _EarningCartState extends State<EarningCart> {
         decoration: BoxDecoration(
             boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.3),
             spreadRadius: 0.5,
-            blurRadius: 3,
+            blurRadius: 5,
             offset: Offset(0, 3), // vertical offset
           ),
         ], color: Color(0xfffbfbff), borderRadius: BorderRadius.circular(12)),
@@ -68,7 +68,7 @@ class _EarningCartState extends State<EarningCart> {
                           borderRadius: BorderRadius.circular(7)),
                       child: Center(
                           child: Text(widget.latter,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: DefaultColor.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
@@ -81,7 +81,8 @@ class _EarningCartState extends State<EarningCart> {
             Padding(
               padding: const EdgeInsets.only(left: 7.0, top: 5),
               child: Text(widget.month,
-                style: TextStyle(color: Colors.grey, fontSize: 16),
+                style: TextStyle(color: Colors.grey, fontSize: 13,fontFamily: "Inter",
+                ),
               ),
             ),
             Padding(
@@ -91,6 +92,7 @@ class _EarningCartState extends State<EarningCart> {
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 16,
+                    fontFamily: "Poppins",
                     fontWeight: FontWeight.bold),
               ),
             )

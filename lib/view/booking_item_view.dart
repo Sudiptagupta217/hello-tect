@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hello_tech_user/widgets/default_colors.dart';
+import 'package:hello_tech_user/utils/default_colors.dart';
 
 class BookingItem extends StatefulWidget {
   const BookingItem({Key? key}) : super(key: key);

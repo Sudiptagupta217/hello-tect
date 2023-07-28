@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_tech_user/widgets/custom_button.dart';
-import 'package:hello_tech_user/widgets/default_colors.dart';
+import 'package:hello_tech_user/utils/default_colors.dart';
 
 class CustomCard extends StatefulWidget {
   final String image;
@@ -35,7 +35,7 @@ class _CustomCardState extends State<CustomCard> {
             BoxShadow(
                 spreadRadius: 1,
                 blurRadius: 10,
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.grey.withOpacity(0.4),
                 offset: Offset(0.0, 1.0)),
           ],
           color: Colors.white,
@@ -62,9 +62,11 @@ class _CustomCardState extends State<CustomCard> {
                                 Image.asset(widget.image, fit: BoxFit.cover)),
                       ),
                       Positioned(
+                        bottom: 5,
+                        left: 10,
                         child: Container(
                           padding:
-                              EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+                              EdgeInsets.symmetric(horizontal: 15, vertical: 3),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             color: Colors.white,
@@ -83,12 +85,11 @@ class _CustomCardState extends State<CustomCard> {
                                 Icons.star,
                                 color: Color(0xffffce31),
                               ),
-                              Text("5")
+                              SizedBox(width: 4,),
+                              Text("5",style: TextStyle(fontSize: 14,fontWeight:FontWeight.w500 ,fontFamily: "Inter"),)
                             ],
                           ),
                         ),
-                        bottom: 5,
-                        left: 10,
                       )
                     ],
                   )),
@@ -102,7 +103,7 @@ class _CustomCardState extends State<CustomCard> {
                   children: [
                     Text(widget.name,
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w700)),
+                            fontSize: 20,fontFamily: "Raleway", fontWeight: FontWeight.w700)),
                     SizedBox(
                       height: 5,
                     ),
@@ -110,29 +111,53 @@ class _CustomCardState extends State<CustomCard> {
                       children: [
                         Text(
                           "Price: ",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 16),
+                          style: TextStyle(fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500, fontSize: 16),
                         ),
                         Text(
                           widget.price,
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500, fontSize: 15),
                         ),
                       ],
                     ),
                     SizedBox(
+                      height: 7,
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.circle_rounded,size: 6,color: Color(0xff616161)),
+                        SizedBox(width: 7,),
+                        Text(
+                          widget.text1,
+                          style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400, fontFamily: "Poppins",color: Color(0xff616161)),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      widget.text1,
-                      style: TextStyle(fontSize: 14, color: Color(0xff616161)),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      textAlign: TextAlign.start,
-                      widget.text2,
-                      style: TextStyle(fontSize: 14, color: Color(0xff616161)),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 4.0),
+                          child: Icon(Icons.circle_rounded,size: 6,color: Color(0xff616161)),
+                        ),
+                        const SizedBox(width: 7,),
+
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.47,
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            widget.text2,
+                            maxLines: 2,
+                            style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400, fontFamily: "Poppins",color: Color(0xff616161)),
+                          ),
+                        ),
+
+                      ],
                     ),
                     Spacer(),
                     Row(
@@ -141,13 +166,14 @@ class _CustomCardState extends State<CustomCard> {
                         CustomButton(
                             text: "Call",
                             textStyle: TextStyle(
-                                fontSize: 15,
+                                fontSize: 14,
+                                fontFamily: "Raleway",
                                 fontWeight: FontWeight.w600,
                                 color: Colors.black87),
                             foregroundColor: Colors.black,
                             backgroundColor: Color(0xffE1E1E1),
                             padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 25),
+                                vertical: 2, horizontal: 25),
                             callback: () {}),
                         SizedBox(
                           width: 10,
@@ -155,7 +181,8 @@ class _CustomCardState extends State<CustomCard> {
                         CustomButton(
                           text: "BOOK",
                           textStyle: TextStyle(
-                              fontSize: 15,
+                              fontSize: 14,
+                              fontFamily: "Raleway",
                               fontWeight: FontWeight.w600,
                               color: Colors.white),
                           foregroundColor: Colors.white,

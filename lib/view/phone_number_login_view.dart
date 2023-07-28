@@ -19,7 +19,7 @@ return Container(
           width: MediaQuery.of(context).size.width*0.90,
           hintText: 'Enter Your Phone Number',
           icon: Icon(
-            Icons.phone,
+            Icons.phone_outlined,
             color: Colors.grey,
             size: 20,
           ),

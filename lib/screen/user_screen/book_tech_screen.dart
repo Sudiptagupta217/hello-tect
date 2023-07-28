@@ -1,0 +1,172 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:hello_tech_user/widgets/custom_button.dart';
+import 'package:hello_tech_user/widgets/custom_form_filed.dart';
+import 'package:hello_tech_user/widgets/custom_topbar.dart';
+import 'package:hello_tech_user/utils/default_colors.dart';
+
+import '../../widgets/buttom_manu.dart';
+import '../../widgets/custom_date_format.dart';
+import '../../widgets/custom_time_format.dart';
+
+class BookTechScreen extends StatefulWidget {
+  const BookTechScreen({Key? key}) : super(key: key);
+
+  @override
+  State<BookTechScreen> createState() => _BookTechScreenState();
+}
+
+class _BookTechScreenState extends State<BookTechScreen> {
+  int selectedIndex = 0;
+
+  void onClicked(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+  final TextEditingController _dateController = TextEditingController();
+
+  late String _selecteddevice;
+  late String _selectedbrand;
+  late String _selectedmodel;
+
+  List<String> devide = ['device1', 'device2', 'device3', 'device4'];
+  List<String> brand = ['brand1', 'brand2', 'brand3', 'brand4', 'brand5'];
+  List<String> model = ['model1', 'model2', 'model3', 'model4', 'model5'];
+
+  @override
+  void initState() {
+    super.initState();
+    _selecteddevice = devide[0];
+    _selectedbrand = brand[0];
+    _selectedmodel = model[0];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    int _currentIndex = 0;
+    CarouselController _carouselController = CarouselController();
+    final List<String> images = [
+      'assets/images/slider.png',
+      'assets/images/slider.png',
+      'assets/images/slider.png',
+    ];
+    return Scaffold(
+        backgroundColor: DefaultColor.bg_color,
+        bottomNavigationBar: CustomFluidNavBar(
+          selectedIndex: selectedIndex,
+          onClicked: onClicked,
+        ),
+
+        body: SingleChildScrollView(
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(children: [
+                  CustomTopBar(
+                    text: 'Book Tech',
+                    icon: Icon(
+                      Icons.search_outlined,
+                      color: DefaultColor.dark_blue,
+                      size: 22,
+                    ),
+                    callback: () {},
+                  ),
+                  CarouselSlider(
+                    carouselController: _carouselController,
+                    items: images.map((image) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Image.asset(
+                              image,
+                              fit: BoxFit.fill,
+                            ),
+                          );
+                        },
+                      );
+                    }).toList(),
+                    options: CarouselOptions(
+                      height: 175,
+                      enlargeCenterPage: true,
+                      aspectRatio: 16 / 9,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enableInfiniteScroll: true,
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      viewportFraction: 0.8,
+                      initialPage: 0,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _currentIndex = index;
+                        });
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Book Your Tech",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700,fontFamily: "Raleway"),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+
+                      CustomDateFormat(
+                          width: MediaQuery.of(context).size.width * 0.42,
+                          hintText: "Date",
+                          icon: Icon(Icons.calendar_month)),
+
+                      CustomTimeFormat(
+                          width: MediaQuery.of(context).size.width * 0.42,
+                          hintText: "Time",
+                          icon: Icon(Icons.watch_later_outlined)),
+
+                      // CustomFormFiled(
+                      //     width: MediaQuery.of(context).size.width * 0.42,
+                      //     hintText: "Time",
+                      //     icon: Icon(Icons.watch_later_outlined)),
+
+
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CustomFormFiled(
+                          width: MediaQuery.of(context).size.width * 0.42,
+                          hintText: "Phone",
+                          icon: Icon(Icons.perm_phone_msg_outlined)),
+                      CustomFormFiled(
+                          width: MediaQuery.of(context).size.width * 0.42,
+                          hintText: "Name",
+                          icon: Icon(Icons.account_circle_outlined)),
+                    ],
+                  ),
+
+                  SizedBox(
+                    height: 140,
+                  ),
+                  CustomButton(
+                      text: "BOOK YOUR SLOT",
+                      textStyle:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w600,fontFamily: "Raleway"),
+                      foregroundColor: DefaultColor.white,
+                      backgroundColor: DefaultColor.light_blue,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.25,
+                          vertical: 21),
+                      callback: () {
+                       Navigator.pushNamed(context, "/SlotBookingConfirmedScreen");
+                      }),
+                  SizedBox(
+                    height: 50,
+                  ),
+                ]))));
+  }
+}
